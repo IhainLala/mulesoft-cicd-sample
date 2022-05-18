@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B package --file /helloworld/pom.xml'
+                bat 'mvn -B package --file /helloworld/pom.xml'
             }
         }
         stage('Test') {
