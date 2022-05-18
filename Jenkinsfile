@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'mvn -B package --file helloworld/pom.xml'
             }
         }
         stage('Test') {
