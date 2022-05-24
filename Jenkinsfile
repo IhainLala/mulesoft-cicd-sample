@@ -10,7 +10,7 @@ pipeline {
         }
         stage ('Docker Build') {
             steps {
-                echo "PATH = ${PATH}"
+                echo "PATH = ${JENKINS_HOME}"
             }
         }
         stage('Test') {
