@@ -10,7 +10,7 @@ pipeline {
         
         stage ('Docker Build') {
             steps {
-                sh 'docker.build registry + ":$BUILD_NUMBER"'
+                bat 'docker.build registry + ":$BUILD_NUMBER"'
            }
         }
     
