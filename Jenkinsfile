@@ -10,7 +10,7 @@ pipeline {
         }
         stage ('Docker Build') {
             steps {
-                sh 'git add ${JENKINS_HOME}/multiple-pipeline_main/helloworld/target/*.jar'
+                sh 'git add C:\Users\lihainjan\AppData\Local\Jenkins\.jenkins\workspace\multiple-pipeline_main\helloworld\target\helloworld-1.0.0-SNAPSHOT-mule-application.jar'
             }
         }
         stage('Test') {
