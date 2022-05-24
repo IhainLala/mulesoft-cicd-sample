@@ -6,7 +6,6 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'mvn -B package --file helloworld/pom.xml'
-                sh 'ls'
             }
         }
         stage ('Docker Build') {
