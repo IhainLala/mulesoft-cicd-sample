@@ -10,7 +10,7 @@ pipeline {
         }
         stage ('Docker Build') {
             steps {
-                echo 'Testing'
+                echo "PATH = ${PATH}"
             }
         }
         stage('Test') {
