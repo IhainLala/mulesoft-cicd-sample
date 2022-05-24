@@ -10,7 +10,7 @@ pipeline {
         }
         stage ('Docker Build') {
             steps {
-                sh 'git add ${JENKINS_HOME}/multiple-pipeline_main/helloworld/target/*.jar"
+                sh 'git add ${JENKINS_HOME}/multiple-pipeline_main/helloworld/target/*.jar'
             }
         }
         stage('Test') {
