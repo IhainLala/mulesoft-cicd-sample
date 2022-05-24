@@ -9,7 +9,7 @@ pipeline {
         }
         stage ('Docker Build') {
             steps {
-                echo 'Testing'
+                sh 'docker build . --tag="mule-hello" -f Dockerfile.txt'
             }
         }
         stage('Test') {
