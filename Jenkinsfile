@@ -8,15 +8,14 @@ pipeline {
             }
         }
         
+        agent { dockerfile true }
         stage ('Docker Build') {
-            agent {
-               dockerfile true
-               steps {
+            steps {
                 sh 'node --version'
                 sh 'svn --version'
-               }
-            }
+           }
         }
+    
         stage('Test') {
             steps {
                 echo 'Testing..'
