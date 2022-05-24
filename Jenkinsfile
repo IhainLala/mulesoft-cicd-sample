@@ -8,9 +8,13 @@ pipeline {
                 archiveArtifacts artifacts: 'helloworld/target/*.jar'
             }
         }
+        
         stage ('Docker Build') {
-            steps {
+            agent {
+               dockerfile true
+               steps {
                 sh 'docker build -t hello-mule .'
+               }
             }
         }
         stage('Test') {
