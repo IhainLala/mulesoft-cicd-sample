@@ -7,9 +7,14 @@ pipeline {
                 bat 'mvn -B package --file helloworld/pom.xml'
             }
         }
+        post {
+            always {
+                archiveArtifacts artifacts: 'target/*.jar'
+            }  
+        }
         stage ('Docker Build') {
             steps {
-                sh 'docker build . --tag="mule-hello" -f Dockerfile.txt'
+                echo 'Testing.'
             }
         }
         stage('Test') {
