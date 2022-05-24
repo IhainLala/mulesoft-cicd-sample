@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'mvn -B package --file helloworld/pom.xml'
-                archiveArtifacts artifacts: 'target/*.jar'
+                archiveArtifacts artifacts: 'helloworld/target/*.jar'
             }
         }
         stage ('Docker Build') {
