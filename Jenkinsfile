@@ -9,7 +9,7 @@ pipeline {
         }
         stage ('Docker Build') {
             steps {
-                sh "ls -la ${pwd()}"
+                echo 'Testing'
             }
         }
         stage('Test') {
