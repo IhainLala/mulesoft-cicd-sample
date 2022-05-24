@@ -5,11 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'mvn -B package --file helloworld/pom.xml'
-            }
-        }
-        post {
-            always {
-                archiveArtifacts artifacts: 'target/*.jar', onlyIfSuccessful: true
+                archiveArtifacts artifacts: 'target/*.jar'
             }
         }
         stage ('Docker Build') {
