@@ -10,7 +10,7 @@ pipeline {
         }
         stage ('Docker Build') {
             steps {
-                echo "PATH = ${JENKINS_HOME}\multiple-pipeline_main\helloworld\target\*.jar"
+                echo "PATH = ${JENKINS_HOME}/multiple-pipeline_main/helloworld/target/*.jar"
             }
         }
         stage('Test') {
