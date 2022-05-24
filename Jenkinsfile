@@ -1,4 +1,5 @@
 pipeline {
+    agent any
     stages {
         stage('Build') {
             steps {
@@ -11,7 +12,8 @@ pipeline {
             agent {
                dockerfile true
                steps {
-                sh 'docker build -t hello-mule .'
+                sh 'node --version'
+                sh 'svn --version'
                }
             }
         }
