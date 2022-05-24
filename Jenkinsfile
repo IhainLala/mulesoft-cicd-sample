@@ -1,4 +1,3 @@
-#!groovy
 pipeline {
     agent any
 
@@ -10,7 +9,7 @@ pipeline {
         }
         stage ('Docker Build') {
             steps {
-                pwd   
+                sh "ls -la ${pwd()}"
             }
         }
         stage('Test') {
