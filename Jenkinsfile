@@ -8,11 +8,9 @@ pipeline {
             }
         }
         
-        agent { dockerfile true }
         stage ('Docker Build') {
             steps {
-                sh 'node --version'
-                sh 'svn --version'
+                sh 'docker.build registry + ":$BUILD_NUMBER"'
            }
         }
     
