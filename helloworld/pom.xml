@@ -16,14 +16,7 @@
 		<app.runtime>4.4.0-20220221</app.runtime>
 		<mule.maven.plugin.version>3.5.2</mule.maven.plugin.version>
 	</properties>
-
-	<distributionManagement>
-		<repository>
-			<id>internal.repo</id>
-			<name>Temporary Staging Repository</name>
-			<url>file://${project.build.directory}/mvn-artifact</url>
-		</repository>
-	</distributionManagement>
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -36,11 +29,7 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
-				<configuration>
-					<altDeploymentRepository>
-    					internal.repo::default::file://${project.build.directory}/mvn-artifact
-       				 </altDeploymentRepository>
-				</configuration>
+				<configuration></configuration>
 			</plugin>
 		</plugins>
 	</build>
