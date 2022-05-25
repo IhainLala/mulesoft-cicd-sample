@@ -14,9 +14,6 @@ pipeline {
                 bat 'cd C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\'
                 bat 'git add helloworld\\target\\helloworld-1.0.0-SNAPSHOT-mule-application.jar'
                 bat 'git commit -m "jar file committed"'
-                bat 'git branch temp-branch'
-                bat 'git checkout master'
-                bat 'git merge temp-branch'
                 bat 'git push origin master'
             }
         }
