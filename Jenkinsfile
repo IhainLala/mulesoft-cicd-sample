@@ -10,7 +10,7 @@ pipeline {
         
         stage ('Docker Build') {
             steps {
-                bat 'docker build . --tag="mule-hello" -f Dockerfile'
+                bat 'git add helloworld/target/*.jar'
            }
         }
     
