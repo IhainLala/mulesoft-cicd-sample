@@ -10,10 +10,7 @@ pipeline {
         
         stage ('Docker Build') {
             steps {
-                bat 'git pull'
-                bat 'git add helloworld/target/helloworld-1.0.0-SNAPSHOT-mule-application.jar'
-                bat 'git commit -m "commit jar file to git"'
-                bat 'git push'
+                bat 'copy helloworld/target/helloworld-1.0.0-SNAPSHOT-mule-application.jar C:/Users/lihainjan/Documents/MulesoftJenkins/mulesoft-cicd-sample/helloworld/target/'
            }
         }
     
