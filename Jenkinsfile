@@ -12,7 +12,7 @@ pipeline {
             steps {
                 bat 'git add helloworld/target/helloworld-1.0.0-SNAPSHOT-mule-application.jar'
                 bat 'git commit -m "commit jar file to git"'
-                bat 'git push origin/main'
+                bat 'git push master HEAD:origin'
            }
         }
     
