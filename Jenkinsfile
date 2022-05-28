@@ -28,7 +28,7 @@ pipeline {
         stage ('Cloning Git') {
             steps {
                 script {
-                    git 'https://github.com/IhainLala/mulesoft-cicd-sample.git'
+                    docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }
