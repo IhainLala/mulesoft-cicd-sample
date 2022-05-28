@@ -23,7 +23,7 @@ pipeline {
         
         stage ('Docker Build') {
             steps {
-                bat 'docker build . --tag="mule-hello" -f Dockerfile.txt'   
+                bat 'docker build . --tag="mule-hello" -f Dockerfile'   
             }
         }
         
