@@ -1,4 +1,8 @@
 pipeline {
+    environment {
+        registry = "lihaina/docker-helloworld"
+        registryCredential = 'dockerhub'
+    }
     agent any
     stages {
         stage('Build') {
@@ -21,10 +25,10 @@ pipeline {
             }
         }
      
-        stage ('Docker build') {
+        stage ('Cloning Git') {
             steps {
                 script {
-                    docker.build gustavoapolinario/jenkins-docker + ":$BUILD_NUMBER" 
+                    git 'https://github.com/IhainLala/mulesoft-cicd-sample.git'
                 }
             }
         }
