@@ -13,6 +13,9 @@ pipeline {
                 bat 'copy helloworld\\target\\helloworld-1.0.0-SNAPSHOT-mule-application.jar C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\helloworld\\target\\'
                 dir("C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\helloworld\\target\\") {
                     bat 'dir'
+                    bat 'git add helloworld-1.0.0-SNAPSHOT-mule-application.jar"
+                    bat 'git commit -m "add mule app"'
+                    bat 'git push'
                 }
             }
         }
