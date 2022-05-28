@@ -13,15 +13,21 @@ pipeline {
                 bat 'copy helloworld\\target\\helloworld-1.0.0-SNAPSHOT-mule-application.jar C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\helloworld\\target\\'
                 dir("C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\helloworld\\target\\") {
                     bat 'dir'
+                    bat 'git pull'
                     bat 'git add helloworld-1.0.0-SNAPSHOT-mule-application.jar'
                     bat 'git commit -m "add mule app"'
                     bat 'git push'
-                    bat 'docker build . --tag="mule-hello" -f Dockerfile'
                 }
-                //bat 'dir'
             }
         }
      
+        stage ('Docker build') {
+            steps {
+                script {
+                    docker.build gustavoapolinario/jenkins-docker + ":$BUILD_NUMBER" 
+                }
+            }
+        }
         stage('Test') {
             steps {
                 echo 'Testing..'
