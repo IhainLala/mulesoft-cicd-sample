@@ -23,7 +23,9 @@ pipeline {
         
         stage ('Docker Build') {
             steps {
-                bat 'docker build . --tag="mule-hello" -f Dockerfile'   
+                script {
+                    docker.build registry + ":latest"
+                }
             }
         }
         
