@@ -17,6 +17,7 @@ pipeline {
                     //bat 'git commit -m "add mule app"'
                     //bat 'git push'
                 //}
+                bat 'dir'
             }
         }
         
