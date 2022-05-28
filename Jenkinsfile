@@ -8,17 +8,24 @@ pipeline {
             }
         }
         
-        stage ('Transfer file') {
+        stage ('Transfer file to GitHub') {
             steps {
-                bat 'copy helloworld\\target\\helloworld-1.0.0-SNAPSHOT-mule-application.jar C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\helloworld\\target\\'
-                dir("C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\helloworld\\target\\") {
-                    bat 'dir'
-                    bat 'git add helloworld-1.0.0-SNAPSHOT-mule-application.jar'
-                    bat 'git commit -m "add mule app"'
-                    bat 'git push'
-                }
+                //bat 'copy helloworld\\target\\helloworld-1.0.0-SNAPSHOT-mule-application.jar C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\helloworld\\target\\'
+                //dir("C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\helloworld\\target\\") {
+                    //bat 'dir'
+                    //bat 'git add helloworld-1.0.0-SNAPSHOT-mule-application.jar'
+                    //bat 'git commit -m "add mule app"'
+                    //bat 'git push'
+                //}
             }
         }
+        
+        stage ('Docker Build') {
+            steps {
+                bat 'docker build . --tag="mule-hello" -f Dockerfile.txt'   
+            }
+        }
+        
     
         stage('Test') {
             steps {
