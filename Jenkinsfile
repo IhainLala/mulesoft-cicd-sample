@@ -2,6 +2,7 @@ pipeline {
     environment {
         registry = "lihaina/docker-helloworld"
         registryCredential = 'dockerhub'
+        project_name = "helloworld"
         workspace_git = 'C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\'
     }
     
@@ -17,7 +18,7 @@ pipeline {
         stage ('Transfer file to GitHub') {
             steps {
                 bat 'copy helloworld\\target\\*.jar C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\helloworld\\target\\'
-                dir(workspace_git+"helloworld\\target\\") {
+                dir(workspace_git + "\\" + project_name + "\\target\\") {
                     bat 'git pull'
                     bat 'git add helloworld-1.0.0-SNAPSHOT-mule-application.jar'
                     bat 'git commit -m "add mule app"'
