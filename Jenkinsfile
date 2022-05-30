@@ -1,10 +1,10 @@
 pipeline {
     environment {
-        registry = "lihaina/docker-helloworld"
+        registry = 'lihaina/docker-helloworld'
         registryCredential = 'dockerhub'
         project_name = 'helloworld'
         workspace_git = 'C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\'
-        target_path = workspace_git + "\\" + project_name + "\\target\\"
+        target_path = workspace_git + '\\' + project_name + '\\target\\'
     }
     
     agent any
