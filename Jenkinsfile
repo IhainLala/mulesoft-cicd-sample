@@ -48,7 +48,8 @@ pipeline {
                 script {
                     docker.withRegistry( '', registryCredential ) {
                         dockerImage.push()
-                    } 
+                    }
+                    bat 'docker run -it --rm -p 8081:8081 mule-hello'
                 }
             }
         }
