@@ -26,6 +26,10 @@ pipeline {
                 dir("C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\") {
                     script {
                         dockerImage = docker.build registry
+                        docker.withRegistry( '', registryCredential ) {
+                            dockerImage.push("$BUILD_NUMBER")
+                            dockerImage.push('latest')
+                        }
                     }
                 }
             }
