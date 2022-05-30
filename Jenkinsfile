@@ -5,7 +5,7 @@ pipeline {
     }
     agent any
     stages {
-        stage('Build') {
+        stage('Build artifact') {
             steps {
                 bat 'mvn -B package --file helloworld/pom.xml'
                 archiveArtifacts artifacts: 'helloworld/target/*.jar'
@@ -21,19 +21,24 @@ pipeline {
                     bat 'git add helloworld-1.0.0-SNAPSHOT-mule-application.jar'
                     bat 'git commit -m "add mule app"'
                     bat 'git push'
-                    //bat 'docker build . --tag="mule-hello" -f Dockerfile.txt'
                 }
+            }
+        }
+        
+        stage ('Docker build') {
+            steps {
                 dir("C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\") {
                     script {
                         dockerImage = docker.build registry
                         docker.withRegistry( '', registryCredential ) {
                             dockerImage.push("$BUILD_NUMBER")
                             dockerImage.push('latest')
-                        }
+                        } 
                     }
                 }
             }
         }
+                
         
         stage ('Docker Build') {
             steps {
