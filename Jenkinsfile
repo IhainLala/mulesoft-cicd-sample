@@ -16,7 +16,6 @@ pipeline {
             steps {
                 bat 'copy helloworld\\target\\helloworld-1.0.0-SNAPSHOT-mule-application.jar C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\helloworld\\target\\'
                 dir("C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\helloworld\\target\\") {
-                    bat 'dir'
                     bat 'git pull'
                     bat 'git add helloworld-1.0.0-SNAPSHOT-mule-application.jar'
                     bat 'git commit -m "add mule app"'
@@ -30,30 +29,26 @@ pipeline {
                 dir("C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\") {
                     script {
                         dockerImage = docker.build registry
-                        docker.withRegistry( '', registryCredential ) {
-                            dockerImage.push("$BUILD_NUMBER")
-                            dockerImage.push('latest')
-                        } 
+                        
                     }
                 }
             }
         }
-                
         
-        stage ('Docker Build') {
-            steps {
-                bat 'dir'
-            }
-        }
-        
-        stage('Test') {
+        stage ('Testing') {
             steps {
                 echo 'Testing..'
             }
         }
-        stage('Deploy') {
+        
+        stage ('Deploy') {
             steps {
-                echo 'Deploying....'
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                        dockerImage.push("$BUILD_NUMBER")
+                        dockerImage.push('latest')
+                    } 
+                }
             }
         }
     }
