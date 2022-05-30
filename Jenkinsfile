@@ -25,6 +25,13 @@ pipeline {
                 }
             }
         }
+        
+        stage ('Docker Build') {
+            steps {
+                bat 'dir'
+            }
+        }
+        
         stage('Test') {
             steps {
                 echo 'Testing..'
