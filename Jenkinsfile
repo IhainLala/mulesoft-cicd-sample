@@ -21,14 +21,7 @@ pipeline {
                     bat 'git add helloworld-1.0.0-SNAPSHOT-mule-application.jar'
                     bat 'git commit -m "add mule app"'
                     bat 'git push'
-                }
-            }
-        }
-     
-        stage ('Cloning Git') {
-            steps {
-                script {
-                    docker.build registry + ":$BUILD_NUMBER"
+                    bat 'docker build . --tag="mule-hello" -f Dockerfile'
                 }
             }
         }
