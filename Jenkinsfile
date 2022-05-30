@@ -28,8 +28,7 @@ pipeline {
             steps {
                 dir("C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\") {
                     script {
-                        dockerImage = docker.build registry
-                        
+                        dockerImage = docker.build registry + ":$BUILD_NUMBER"   
                     }
                 }
             }
@@ -45,9 +44,16 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry( '', registryCredential ) {
-                        dockerImage.push("$BUILD_NUMBER")
-                        dockerImage.push('latest')
+                        dockerImage.push()
                     } 
+                }
+            }
+        }
+        
+        stage ('Removed unused docker image') {
+            steps {
+                script {
+                    "docker rmi $registry:$BUILD_NUMBER"
                 }
             }
         }
