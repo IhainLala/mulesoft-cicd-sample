@@ -1,7 +1,7 @@
 pipeline {
     environment {
         registry = "lihaina/docker-helloworld"
-        registryCredential = 'dockerhubcredential'
+        registryCredential = 'dockerhub'
     }
     agent any
     stages {
