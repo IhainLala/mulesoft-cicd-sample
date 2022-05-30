@@ -25,7 +25,7 @@ pipeline {
                 }
                 dir("C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\") {
                     bat 'dir'
-                    bat 'docker build . --tag="mule-hello" -f Dockerfile
+                    bat 'docker build . --tag="mule-hello" -f Dockerfile'
                 }
             }
         }
