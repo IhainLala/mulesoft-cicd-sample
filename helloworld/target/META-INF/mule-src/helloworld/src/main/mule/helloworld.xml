@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="48b6f183-7869-4ab3-afc2-f82e06e98995" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="helloworldFlow" doc:id="04c936be-385c-4990-afe2-1ee9dbd36df4" >
+		<http:listener doc:name="GET /hello-world" doc:id="00c62d38-d88a-4ce2-a0b3-168dc6664be6" config-ref="HTTP_Listener_config" path="/helloworld"/>
+		<set-payload value="Hi, this is hello world !" doc:name="Set Payload" doc:id="85122342-5f8e-41af-92f9-0b465689721b" />
+		<logger level="INFO" doc:name="Logger" doc:id="204f4336-13be-44eb-8dbc-4f71cbe0deb6" />
+	</flow>
+</mule>
