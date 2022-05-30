@@ -2,6 +2,7 @@ pipeline {
     environment {
         registry = "lihaina/docker-helloworld"
         registryCredential = 'dockerhub'
+        workspace_git = 'C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\'
     }
     
     agent any
@@ -27,7 +28,7 @@ pipeline {
         
         stage ('Docker build') {
             steps {
-                dir("C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\") {
+                dir(workspace_git) {
                     script {
                         dockerImage = docker.build registry + ":$BUILD_NUMBER"   
                     }
