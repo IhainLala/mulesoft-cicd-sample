@@ -4,7 +4,6 @@ pipeline {
         registryCredential = 'dockerhub'
         project_name = "helloworld"
         workspace_git = "C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\"
-        //target_path = workspace_git + '\\' + project_name + '\\target\\'
     }
     
     agent any
@@ -21,7 +20,7 @@ pipeline {
                 bat 'copy helloworld\\target\\*.jar ' + workspace_git + '\\' + project_name + '\\target\\'
                 dir(workspace_git + '\\' + project_name + '\\target\\') {
                     bat 'git pull'
-                    bat 'git add helloworld-1.0.0-SNAPSHOT-mule-application.jar'
+                    bat 'git add .'
                     bat 'git commit -m "add mule app"'
                     bat 'git push'
                 }
