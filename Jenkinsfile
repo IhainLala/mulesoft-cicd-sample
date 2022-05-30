@@ -23,6 +23,9 @@ pipeline {
                     bat 'git push'
                     //bat 'docker build . --tag="mule-hello" -f Dockerfile.txt'
                 }
+                dir("C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\") {
+                    bat 'dir'
+                }
             }
         }
         
