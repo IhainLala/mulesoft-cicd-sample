@@ -3,6 +3,7 @@ pipeline {
         registry = "lihaina/docker-helloworld"
         registryCredential = 'dockerhub'
     }
+    
     agent any
     stages {
         stage('Build artifact') {
