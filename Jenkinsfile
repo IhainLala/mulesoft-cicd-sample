@@ -21,7 +21,7 @@ pipeline {
                     bat 'git add helloworld-1.0.0-SNAPSHOT-mule-application.jar'
                     bat 'git commit -m "add mule app"'
                     bat 'git push'
-                    bat 'docker build . --tag="mule-hello" -f Dockerfile.txt'
+                    //bat 'docker build . --tag="mule-hello" -f Dockerfile.txt'
                 }
             }
         }
