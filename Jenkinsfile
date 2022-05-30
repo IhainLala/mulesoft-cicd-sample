@@ -50,13 +50,5 @@ pipeline {
                 }
             }
         }
-        
-        stage ('Removed unused docker image') {
-            steps {
-                script {
-                    "docker rmi $registry:$BUILD_NUMBER"
-                }
-            }
-        }
     }
 }
