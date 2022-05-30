@@ -24,9 +24,7 @@ pipeline {
                     //bat 'docker build . --tag="mule-hello" -f Dockerfile.txt'
                 }
                 dir("C:\\Users\\lihainjan\\Documents\\MulesoftJenkins\\mulesoft-cicd-sample\\") {
-                    script {
-                        dockerImage = docker.build registry
-                    }
+                    bat 'docker build . --tag="mule-hello" -f Dockerfile'
                 }
             }
         }
