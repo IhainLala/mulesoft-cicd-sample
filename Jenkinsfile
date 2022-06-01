@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Build artifact') {
             steps {
-                bat 'mvn -B package --file helloworld/pom.xml'
+                bat 'mvn -B package --file ' + project_name + '/pom.xml'
                 archiveArtifacts artifacts: 'helloworld/target/*.jar'
             }
         }
