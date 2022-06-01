@@ -49,7 +49,7 @@ pipeline {
                     docker.withRegistry( '', registryCredential ) {
                         dockerImage.push()
                     }
-                    bat 'docker run --rm -p 8081:8081 ' + registry + ":$BUILD_NUMBER"  
+                    //bat 'docker run --rm -p 8081:8081 ' + registry + ":$BUILD_NUMBER"  
                 }
             }
         }
