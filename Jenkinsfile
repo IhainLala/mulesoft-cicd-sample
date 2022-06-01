@@ -50,7 +50,6 @@ pipeline {
                         dockerImage.push()
                     }
                     bat 'docker run -d -p 8081:8081 ' + registry + ":$BUILD_NUMBER"  
-                    //bat 'docker run --rm -p 8081:8081 ' + registry + ":$BUILD_NUMBER"  
                 }
             }
         }
