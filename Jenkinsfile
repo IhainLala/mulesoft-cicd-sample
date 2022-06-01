@@ -17,7 +17,7 @@ pipeline {
         
         stage ('Transfer file to GitHub') {
             steps {
-                bat 'copy helloworld\\target\\*.jar ' + workspace_git + '\\' + project_name + '\\target\\'
+                bat 'copy ' + project_name +"\\target\\*.jar ' + workspace_git + '\\' + project_name + '\\target\\'
                 dir(workspace_git + '\\' + project_name + '\\target\\') {
                     bat 'git pull'
                     bat 'git add .'
